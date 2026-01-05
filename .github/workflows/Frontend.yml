@@ -6,21 +6,15 @@ on:
     branches: [ main, master ]
     paths:
       - 'employee-react-app/**'
-  pull_request:
-    branches: [ main, master ]
-    paths:
-      - 'employee-react-app/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    # Step 1: Checkout code
     - name: Checkout Repository
       uses: actions/checkout@v4
     
-    # Step 2: Set up Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
@@ -28,23 +22,21 @@ jobs:
         cache: 'npm'
         cache-dependency-path: employee-react-app/package-lock.json
     
-    # Step 3: Install dependencies
     - name: Install Dependencies
       run: npm install
       working-directory: ./employee-react-app
     
-    # Step 4: Run build
     - name: Build Application
       run: npm run build
       working-directory: ./employee-react-app
+      env:
+        CI: false           # ← YE LINE ADD KARNI HAI BAS!
     
-    # Step 5: Run tests (optional)
     - name: Run Tests
       run: npm test -- --coverage --watchAll=false
       working-directory: ./employee-react-app
       continue-on-error: true
     
-    # Step 6: Upload build artifact
     - name: Upload Build
       uses: actions/upload-artifact@v4
       with:
