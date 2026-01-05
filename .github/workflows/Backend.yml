@@ -24,14 +24,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    # Step 3: Build with Maven (Skip Tests for now)
+    # Step 3: Build with Maven
     - name: Build with Maven
       run: mvn clean package -DskipTests=true
-      working-directory: 'employeemanagement (1)'
+      working-directory: 'employeemanagement (1)/employeemanagement'
     
-    # Step 4: Upload JAR artifact
+    # Step 4: Upload JAR
     - name: Upload JAR
       uses: actions/upload-artifact@v4
       with:
         name: backend-jar
-        path: 'employeemanagement (1)/target/*.jar'
+        path: 'employeemanagement (1)/employeemanagement/target/*.jar'
