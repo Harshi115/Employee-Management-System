@@ -5,11 +5,11 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'employeemanagement (1)/**'    
+      - 'employeemanagement/**'    
   pull_request:
     branches: [ main, master ]
     paths:
-      - 'employeemanagement (1)/**'    
+      - 'employeemanagement/**'    
 
 jobs:
   build:
@@ -28,14 +28,14 @@ jobs:
     
     - name: Build with Maven
       run: mvn clean package -DskipTests=false
-      working-directory: ./   employeemanagement (1)
+      working-directory: ./   employeemanagement 
     
     - name: Run Tests
       run: mvn test
-      working-directory: ./  employeemanagement (1)
+      working-directory: ./  employeemanagement 
     
     - name: Upload JAR
       uses: actions/upload-artifact@v4
       with:
         name: backend-jar
-        path: employeemanagement (1)/target/*.jar    
+        path: employeemanagement/target/*.jar    
