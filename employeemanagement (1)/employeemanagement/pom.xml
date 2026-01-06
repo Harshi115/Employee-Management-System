@@ -44,12 +44,12 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- H2 Database (or your database) -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        
 
         <!-- Spring Boot Starter Test (includes JUnit 5) -->
         <dependency>
