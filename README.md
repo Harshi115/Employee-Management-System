@@ -21,7 +21,7 @@ A simple Employee Management System built as part of a **5-week Full-Stack Devel
 - Java 17
 - Spring Boot 3.x
 - Spring Data JPA
-- H2 Database (In-Memory)
+- postgresql 
 - Maven
 
 ### Frontend
